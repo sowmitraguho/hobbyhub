@@ -11,6 +11,7 @@ import Home from './Components/Home.jsx';
 import CreateGroup from './Components/CreateGroup.jsx';
 import UpdateGroup from './Components/UpdateGroup.jsx';
 import GroupDetails from './Components/GroupDetails.jsx';
+import AllGroups from './Components/AllGroups.jsx';
 
 // router setup
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch('http://localhost:3000/groups'),
         Component: Home
+      },
+      {
+        path: 'allgroup',
+        loader: () => fetch('http://localhost:3000/groups'),
+        Component: AllGroups, 
       },
       {
         path: 'creategroup',

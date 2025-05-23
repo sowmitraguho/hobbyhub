@@ -9,10 +9,13 @@ const Home = () => {
     return (
         <div className="">
             <h1 className="text-3xl">This is Home</h1>
-            <div className="bg-[url('home-background.jpg')] bg-cover bg-center min-h-screen p-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {
+            <div className="bg-[url('home-background.jpg')] bg-cover bg-center min-h-screen p-24">
+                <h2 className="text-2xl font-semibold mb-6 text-red-950">Featured Groups</h2>
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                    {
                     allGroups.map(group=><GroupCard key={group._id} group={group} />)
                 }
+                </div>
             </div>
         </div>
     );
