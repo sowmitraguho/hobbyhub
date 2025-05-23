@@ -1,12 +1,12 @@
 import React, { use } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from './Firebase/AuthContext';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
 
     const { loggedInUser, setLoggedInUser, logOut } = use(AuthContext);
-    //console.log('from navbar', loggedInUser.uid);
-
+    //const {displayName, email} = loggedInUser;
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -59,8 +59,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <img data-tooltip-id="my-tooltip"
+                        data-tooltip-content={loggedInUser?.displayName} className='w-10 h-10 rounded-full mr-2' src={loggedInUser ? loggedInUser.photoURL : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} alt="" />
+                        <Tooltip id="my-tooltip" />
                     {
-                        (loggedInUser?.uid) ? <button onClick={handleLogOut} className="btn">LogOut</button> : <button onClick={()=> navigate('/login')} className="btn">Login</button>
+                        (loggedInUser?.uid) ? <button onClick={handleLogOut} className="btn">LogOut</button> : <button onClick={() => navigate('/login')} className="btn">Login</button>
                     }
                 </div>
             </div>

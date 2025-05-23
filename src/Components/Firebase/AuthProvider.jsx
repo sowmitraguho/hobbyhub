@@ -5,7 +5,7 @@ import { auth } from '../../firebase.init';
 
 const AuthProvider = ({children}) => {
 
-    const [loggedInUser, setLoggedInUser] = useState(null);
+    const [loggedInUser, setLoggedInUser] = useState(auth.currentUser);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -16,6 +16,7 @@ const AuthProvider = ({children}) => {
     }
 
     const updateUser = (updatedUserData) => {
+        console.log('inside update user', updatedUserData);
         return updateProfile(auth.currentUser, updatedUserData);
     }
 

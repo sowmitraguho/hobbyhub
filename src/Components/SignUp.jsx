@@ -25,19 +25,20 @@ const SignUp = () => {
                         timer: 2000
                     });
                 }
+                updateUser({ displayName: name, photoURL: photoURL })
+                    .then(() => {
+                        // Signed up 
+                        //const user = result.user;
+                        console.log('profile updated!');
+                    })
+                    .catch((error) => {
+                        console.log(error.message)
+                    });
             })
             .catch((error) => {
                 console.log(error.message)
             });
-        updateUser({ displayName: name, photoURL: photoURL })
-            .then(() => {
-                // Signed up 
-                //const user = result.user;
-                console.log('profile updated!');
-            })
-            .catch((error) => {
-                console.log(error.message)
-            });
+
     }
 
 
