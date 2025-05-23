@@ -14,6 +14,7 @@ import GroupDetails from './Components/GroupDetails.jsx';
 import AllGroups from './Components/AllGroups.jsx';
 import SignUp from './Components/SignUp.jsx';
 import Login from './Components/Login.jsx';
+import MyGroups from './Components/MyGroups.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
 
@@ -31,21 +32,26 @@ const router = createBrowserRouter([
       {
         path: 'allgroup',
         loader: () => fetch('http://localhost:3000/groups'),
-        Component: AllGroups, 
+        Component: AllGroups 
       },
       {
         path: 'creategroup',
-        Component: CreateGroup, 
+        element: <PrivateRoutes> <CreateGroup></CreateGroup> </PrivateRoutes>
       },
       {
-        path: 'updategroup',
-        Component: UpdateGroup, 
+        path: 'updategroup/:id',
+        loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`), 
+        Component: UpdateGroup 
       },
       {
         path: 'group/:id',
         loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`),
-        //Component: GroupDetails, 
         element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
+      },
+      {
+        path: 'mygroup/:name',
+        loader: ({params}) => fetch(`http://localhost:3000/mygroups/${params.name}`),
+        element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
       },
       {
         path: 'login',

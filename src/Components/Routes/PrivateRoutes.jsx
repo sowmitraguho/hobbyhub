@@ -7,6 +7,7 @@ const PrivateRoutes = ({children}) => {
     const location = useLocation();
 
     const {loggedInUser} = useContext(AuthContext);
+    console.log('from private routes', loggedInUser);
 
     if(!loggedInUser) {
         

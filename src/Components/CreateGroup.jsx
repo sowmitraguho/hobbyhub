@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from './Firebase/AuthContext';
 
 const CreateGroup = () => {
 
+    const {loggedInUser} = use(AuthContext);
+    const {displayName, email} = loggedInUser;
 
     const handleCreateGroup = (e) => {
         e.preventDefault();
@@ -69,7 +72,7 @@ const CreateGroup = () => {
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">New Category</label>
-                            <input type="text" name='new-category' className="input w-full" placeholder="New Category Name if Your selected category is other" />
+                            <input type="text" name='newCategory' className="input w-full" placeholder="New Category Name if Your selected category is other" />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Description</label>
@@ -81,7 +84,7 @@ const CreateGroup = () => {
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Maximun Member</label>
-                            <input type="number" name='max-member' className="input w-full" placeholder="Maximun Member" />
+                            <input type="number" name='maxMember' className="input w-full" placeholder="Maximun Member" />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Start Date</label>
@@ -95,11 +98,11 @@ const CreateGroup = () => {
                     </div>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4 my-6">
                         <label className="label">User Name</label>
-                        <input type="text" name='user-name' className="input w-full" readOnly defaultValue='User Name' placeholder="User Name" />
+                        <input type="text" name='userName' className="input w-full" readOnly defaultValue={displayName} placeholder="User Name" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4 my-6">
                         <label className="label">User Email</label>
-                        <input type="email" name='user-email' readOnly defaultValue='user@email' className="input w-full" placeholder="User Email" />
+                        <input type="email" name='userEmail' readOnly defaultValue={email} className="input w-full" placeholder="User Email" />
                     </fieldset>
                     <button type='submit' className="btn btn-neutral w-full my-6">Create Group</button>
                 </div>

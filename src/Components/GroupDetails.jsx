@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router';
 const GroupDetails = () => {
     const groupInfo = useLoaderData();
     console.log(groupInfo);
-    const { _id, name, hobbyCategory, description, photoURL, date, locatiopn } = groupInfo;
+    const { _id, name, hobbyCategory, description, photoURL, date, locatiopn, maxMember } = groupInfo;
     return (
         <div className="bg-[url('https://i.ibb.co/spF1J5nt/chang-duong-Sj0i-Mtq-Z4w-unsplash.jpg')] bg-cover bg-center min-h-screen p-12 text-center">
             
@@ -22,7 +22,7 @@ const GroupDetails = () => {
                             <p>
                                 Group Description: <span className=' font-normal'>{description}</span> 
                             </p>
-                            <p>maximum Member: <span className=' font-normal'></span> {}</p>
+                            <p>maximum Member: <span className=' font-normal'></span> {maxMember}</p>
                             <p>Meeting Location: <span className=' font-normal'>{locatiopn}</span> </p>
                             <p>Join before: <span className=' font-normal'>{date}</span> </p>
                             <button className="btn btn-primary">Join Group</button>
