@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Navbar from '../Components/Navbar.jsx'
 const Header = () => {
     return (
         <div>
-            <h1 className="text-3xl">This is Header</h1>
+            <Navbar></Navbar>
         </div>
     );
 };

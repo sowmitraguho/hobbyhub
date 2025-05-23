@@ -12,6 +12,10 @@ import CreateGroup from './Components/CreateGroup.jsx';
 import UpdateGroup from './Components/UpdateGroup.jsx';
 import GroupDetails from './Components/GroupDetails.jsx';
 import AllGroups from './Components/AllGroups.jsx';
+import SignUp from './Components/SignUp.jsx';
+import Login from './Components/Login.jsx';
+import AuthProvider from './Components/Firebase/AuthProvider.jsx';
+import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
 
 // router setup
 const router = createBrowserRouter([
@@ -40,7 +44,16 @@ const router = createBrowserRouter([
       {
         path: 'group/:id',
         loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`),
-        Component: GroupDetails, 
+        //Component: GroupDetails, 
+        element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
+      },
+      {
+        path: 'login',
+        Component: Login, 
+      },
+      {
+        path: 'signup',
+        Component: SignUp, 
       },
     ]
   },
@@ -48,6 +61,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+       <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
