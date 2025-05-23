@@ -4,13 +4,14 @@ import { AuthContext } from './Firebase/AuthContext';
 
 const Navbar = () => {
 
-    const { loggedInUser, logOut } = use(AuthContext);
+    const { loggedInUser, setLoggedInUser, logOut } = use(AuthContext);
     //console.log('from navbar', loggedInUser.uid);
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 // Sign-out successful.
+                setLoggedInUser(null);
             }).catch((error) => {
                 console.log(error);
             });

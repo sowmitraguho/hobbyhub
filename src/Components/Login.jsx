@@ -18,6 +18,7 @@ const Login = () => {
             .then((result) => {
                 // Signed in 
                 console.log(result.user);
+                setLoggedInUser(result.user);
             })
             .catch((error) => {
                 console.log(error.message);
