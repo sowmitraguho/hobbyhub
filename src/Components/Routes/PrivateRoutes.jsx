@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Firebase/AuthContext';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from 'react-router';
 
 const PrivateRoutes = ({children}) => {
 
-    
+    const location = useLocation();
 
     const {loggedInUser} = useContext(AuthContext);
 
     if(!loggedInUser) {
         
-        return <Navigate to='/login'></Navigate>
+        return <Navigate to='/login' state={location?.pathname}></Navigate>
     }
 
 

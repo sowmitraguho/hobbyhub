@@ -1,11 +1,11 @@
 import React, { use } from 'react';
 import { AuthContext } from './Firebase/AuthContext';
+import { useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
-
+    const navigate = useNavigate();
+    const location = useLocation();
     const { signIn, setLoggedInUser } = use(AuthContext);
-
-
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -19,6 +19,7 @@ const Login = () => {
                 // Signed in 
                 console.log(result.user);
                 setLoggedInUser(result.user);
+                navigate(location?.state || '/');
             })
             .catch((error) => {
                 console.log(error.message);
