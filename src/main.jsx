@@ -6,12 +6,35 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+import MainLayouts from './Layouts/MainLayouts.jsx';
+import Home from './Components/Home.jsx';
+import CreateGroup from './Components/CreateGroup.jsx';
+import UpdateGroup from './Components/UpdateGroup.jsx';
+import GroupDetails from './Components/GroupDetails.jsx';
 
 // router setup
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    Component: MainLayouts,
+    children: [
+      {
+        index: true,
+        Component: Home
+      },
+      {
+        path: 'creategroup',
+        Component: CreateGroup, 
+      },
+      {
+        path: 'updategroup',
+        Component: UpdateGroup, 
+      },
+      {
+        path: 'group/:id',
+        Component: GroupDetails, 
+      },
+    ]
   },
 ]);
 
