@@ -7,6 +7,8 @@ const AuthProvider = ({children}) => {
 
     const provider = new GoogleAuthProvider();
 
+    const [loading, setLoading] = useState(true);
+
     const [loggedInUser, setLoggedInUser] = useState(auth.currentUser);
 
     const createUser = (email, password) => {
@@ -34,6 +36,7 @@ const AuthProvider = ({children}) => {
         const UnSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('inside useeffect after auth state changed', currentUser);
             setLoggedInUser(currentUser);
+            setLoading(false);
         });
         return ()=> {
             UnSubscribe();
@@ -47,7 +50,8 @@ const AuthProvider = ({children}) => {
         updateUser,
         logOut,
         setLoggedInUser,
-        loggedInUser
+        loggedInUser,
+        loading
     };
     
     return (
