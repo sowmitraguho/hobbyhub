@@ -17,6 +17,7 @@ import Login from './Components/Login.jsx';
 import MyGroups from './Components/MyGroups.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 // router setup
 const router = createBrowserRouter([
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
         path: 'signup',
         Component: SignUp, 
       },
+      {
+        path: '*',
+        element: <ErrorPage/>
+      }
     ]
   },
 ]);
