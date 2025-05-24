@@ -7,7 +7,7 @@ const GroupDetails = () => {
     const { _id, name, hobbyCategory, description, photoURL, date, locatiopn, maxMember } = groupInfo;
     return (
         <div className="bg-[url('https://i.ibb.co/spF1J5nt/chang-duong-Sj0i-Mtq-Z4w-unsplash.jpg')] bg-cover bg-center min-h-screen p-12 text-center">
-            
+
             <div className='p-12 bg-black/70 min-h-screen rounded-lg text-white'>
                 <h2 className="text-5xl font-semibold mb-12">Group Details</h2>
                 <div className=" ">
@@ -20,12 +20,18 @@ const GroupDetails = () => {
                             <h1 className="text-5xl font-bold">{name}</h1>
                             <p>Categroy: <span className=' font-normal'>{hobbyCategory}</span> </p>
                             <p>
-                                Group Description: <span className=' font-normal'>{description}</span> 
+                                Group Description: <span className=' font-normal'>{description}</span>
                             </p>
                             <p>maximum Member: <span className=' font-normal'></span> {maxMember}</p>
                             <p>Meeting Location: <span className=' font-normal'>{locatiopn}</span> </p>
                             <p>Join before: <span className=' font-normal'>{date}</span> </p>
-                            <button className="btn btn-primary">Join Group</button>
+                            {
+                                new Date(date) >= new Date() ? (
+                                    <button className="btn btn-primary">Join Group</button>
+                                ) : (
+                                    <p className="text-red-500 font-semibold">Sorry, the joining date has passed.</p>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
