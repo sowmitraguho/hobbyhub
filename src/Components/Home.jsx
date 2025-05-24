@@ -1,20 +1,36 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
 import GroupCard from './GroupCard';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
     const allGroups = useLoaderData();
     //console.log(allGroups);
-    
+
     return (
         <div className="">
-            <h1 className="text-3xl">This is Home</h1>
+            <h1 className='text-3xl text-center my-4'>
+                Life is simple{' '}
+                <span style={{ color: 'red', fontWeight: 'bold' }}>
+                    {/* Style will be inherited from the parent element */}
+                    <Typewriter
+                        words={['Eat', 'Sleep', 'Follow Your Hobby!']}
+                        loop={20}
+                        cursor
+                        cursorStyle='_'
+                        typeSpeed={70}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        
+                    />
+                </span>
+            </h1>
             <div className="bg-[url('home-background.jpg')] bg-cover bg-center min-h-screen p-24">
                 <h2 className="text-2xl font-semibold mb-6 text-red-950">Featured Groups</h2>
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
-                    allGroups.map(group=><GroupCard key={group._id} group={group} />)
-                }
+                        allGroups.map(group => <GroupCard key={group._id} group={group} />)
+                    }
                 </div>
             </div>
         </div>
