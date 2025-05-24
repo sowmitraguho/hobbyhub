@@ -16,7 +16,7 @@ const UpdateGroup = () => {
             const form = e.target;
             const formData = new FormData(form);
             const newGroupInfo = Object.fromEntries(formData.entries());
-            console.log(newGroupInfo);
+           //console.log(newGroupInfo);
             // data send to mongodb
             fetch(`http://localhost:3000/groups/${currentGroupData._id}`, {
                 method: 'PUT',
@@ -27,7 +27,7 @@ const UpdateGroup = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    //console.log(data);
                     if (data.modifiedCount) {
                         Swal.fire({
                             title: "Group has been created SuccessFully!",

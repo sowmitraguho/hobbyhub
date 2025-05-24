@@ -47,7 +47,7 @@ const MyGroups = () => {
                                         </td>
                                         <td>{group.date}</td>
                                         <th className='grid gap-1'>
-                                            <button onClick={() => navigate(`updategroup/${group._id}`)} className="btn btn-neutral btn-sm">Update</button>
+                                            <button onClick={() => navigate(`/updategroup/${group._id}`)} className="btn btn-neutral btn-sm">Update</button>
                                             <button className="btn btn-neutral btn-sm">Delete</button>
                                         </th>
                                     </tr>)
