@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router';
 import GroupCard from './GroupCard';
 import { Typewriter } from 'react-simple-typewriter';
 import Carousel from './Carousel';
+import GroupMembers from './GroupMembers';
 
 const Home = () => {
     const allGroups = useLoaderData();
@@ -36,6 +37,9 @@ const Home = () => {
                         featuredGroups.map(group => <GroupCard key={group._id} group={group} />)
                     }
                 </div>
+            </div>
+            <div>
+                <GroupMembers/>
             </div>
         </div>
     );
