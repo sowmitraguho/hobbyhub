@@ -1,12 +1,47 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import GroupCard from './GroupCard';
+import Swal from 'sweetalert2';
 
 const MyGroups = () => {
     const myGroups = useLoaderData();
 
     const navigate = useNavigate();
-    //console.log(myGroups);
+
+    const handleDeleteGroup = (id) => {
+        //console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/groups/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+
+
+            }
+        });
+    }
+
+
+
     return (
         <div className="p-12 text-center bg-[url('home-background.jpg')] bg-cover bg-center min-h-screen ">
             <h2 className="text-3xl font-semibold">My Groups</h2>
@@ -22,10 +57,10 @@ const MyGroups = () => {
                                 <th>Action</th>
                             </tr>
                         </thead>
-                         <tbody>
-                        {
-                            myGroups.map(group => 
-                                    <tr>
+                        <tbody>
+                            {
+                                myGroups.map(group =>
+                                    <tr key={group._id}>
                                         <td>
                                             <div className="flex items-center gap-3">
                                                 <div className="avatar">
@@ -42,16 +77,16 @@ const MyGroups = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            
+
                                             <span className="badge badge-ghost badge-sm">{group.description}</span>
                                         </td>
                                         <td>{group.date}</td>
                                         <th className='grid gap-1'>
                                             <button onClick={() => navigate(`/updategroup/${group._id}`)} className="btn btn-neutral btn-sm">Update</button>
-                                            <button className="btn btn-neutral btn-sm">Delete</button>
+                                            <button onClick={() => handleDeleteGroup(group._id)} className="btn btn-neutral btn-sm">Delete</button>
                                         </th>
                                     </tr>)
-                        }</tbody>
+                            }</tbody>
                     </table>
                 </div>
             </div>

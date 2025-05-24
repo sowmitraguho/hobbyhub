@@ -18,7 +18,7 @@ const GroupCard = ({ group }) => {
                         src={photoURL}
                         alt="Shoes" />
                 </figure>
-                <div className="card-body">
+                <div className="card-body text-left">
                     <h2 className="card-title">{name}
                         <div className="badge badge-secondary">{hobbyCategory}</div>
                     </h2>

@@ -6,17 +6,15 @@ import { AuthContext } from './Firebase/AuthContext';
 const UpdateGroup = () => {
 
     const {loggedInUser} = use(AuthContext);
-    //const {displayName, email} = loggedInUser;
 
     const currentGroupData = useLoaderData();
-   // console.log(currentGroupData, loggedInUser);
 
-    const handleCreateGroup = (e) => {
+    const handleUpdateGroup = (e) => {
             e.preventDefault();
             const form = e.target;
             const formData = new FormData(form);
             const newGroupInfo = Object.fromEntries(formData.entries());
-           //console.log(newGroupInfo);
+
             // data send to mongodb
             fetch(`http://localhost:3000/groups/${currentGroupData._id}`, {
                 method: 'PUT',
@@ -27,7 +25,6 @@ const UpdateGroup = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    //console.log(data);
                     if (data.modifiedCount) {
                         Swal.fire({
                             title: "Group has been created SuccessFully!",
@@ -50,7 +47,7 @@ const UpdateGroup = () => {
 
                 Please fill in the required details to set up your group and let others know what it's all about.
             </p>
-            <form onSubmit={handleCreateGroup}>
+            <form onSubmit={handleUpdateGroup}>
                 <div className='p-12'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
