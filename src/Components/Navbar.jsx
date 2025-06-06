@@ -1,5 +1,5 @@
 import React, { use, useContext, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from './Firebase/AuthContext';
 import { Tooltip } from 'react-tooltip';
 import { MdSunny } from 'react-icons/md';
@@ -73,7 +73,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">HobbyHub</a>
+                    <Link to='/' className="btn btn-ghost text-xl">HobbyHub</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
