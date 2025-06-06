@@ -19,6 +19,8 @@ import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 
+// server site from vercel: https://hobby-hub-server-self.vercel.app/groups
+
 // router setup
 const router = createBrowserRouter([
   {
@@ -27,12 +29,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/groups'),
+        loader: () => fetch('https://hobby-hub-server.onrender.com/groups'),
         Component: Home
       },
       {
         path: 'allgroup',
-        loader: () => fetch('http://localhost:3000/groups'),
+        loader: () => fetch('https://hobby-hub-server.onrender.com/groups'),
         Component: AllGroups 
       },
       {
@@ -41,17 +43,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'updategroup/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`), 
+        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.id}`), 
         Component: UpdateGroup 
       },
       {
         path: 'group/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/groups/${params.id}`),
+        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.id}`),
         element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
       },
       {
         path: 'mygroup/:name',
-        loader: ({params}) => fetch(`http://localhost:3000/mygroups/${params.name}`),
+        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.name}`),
         element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
       },
       {

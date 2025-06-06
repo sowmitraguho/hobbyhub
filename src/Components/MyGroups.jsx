@@ -20,7 +20,7 @@ const MyGroups = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${id}`, {
+                fetch(`https://hobby-hub-server.onrender.com/groups/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

@@ -16,7 +16,7 @@ const UpdateGroup = () => {
             const newGroupInfo = Object.fromEntries(formData.entries());
 
             // data send to mongodb
-            fetch(`http://localhost:3000/groups/${currentGroupData._id}`, {
+            fetch(`https://hobby-hub-server.onrender.com/groups/${currentGroupData._id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

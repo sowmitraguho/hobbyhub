@@ -14,7 +14,7 @@ const CreateGroup = () => {
         const newGroupInfo = Object.fromEntries(formData.entries());
         console.log(newGroupInfo);
         // data send to mongodb
-        fetch('http://localhost:3000/groups', {
+        fetch('https://hobby-hub-server.onrender.com/groups', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

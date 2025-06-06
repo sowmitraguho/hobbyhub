@@ -7,7 +7,7 @@ const GroupMembers = () => {
     const [members, setMembers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/users').then(res => res.json()).then(data => {
+        fetch('https://hobby-hub-server.onrender.com/users').then(res => res.json()).then(data => {
             console.log('from members', data);
             setMembers(data);
         });

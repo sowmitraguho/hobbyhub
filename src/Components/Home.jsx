@@ -8,7 +8,7 @@ import GroupMembers from './GroupMembers';
 const Home = () => {
     const allGroups = useLoaderData();
     //console.log(allGroups);
-    const featuredGroups = allGroups.slice(2, 8);
+    const featuredGroups = allGroups?.slice(0, 6) || [];
     return (
         <div className="">
             <h1 className='text-3xl text-center py-4'>
