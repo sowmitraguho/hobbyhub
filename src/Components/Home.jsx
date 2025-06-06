@@ -4,6 +4,7 @@ import GroupCard from './GroupCard';
 import { Typewriter } from 'react-simple-typewriter';
 import Carousel from './Carousel';
 import GroupMembers from './GroupMembers';
+import Services from './Services';
 
 //bg-[url('https://i.ibb.co/jvKSBjDf/mjy15.jpg')] bg-no-repeat bg-cove
 
@@ -33,7 +34,7 @@ const Home = () => {
                 <Carousel/>
             </div>
             <div className="min-h-screen p-24 mt-[-6px] r">
-                <h2 className="text-2xl font-semibold mb-6 text-green-500">Featured Groups</h2>
+                <h2 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-green-500">Featured Groups</h2>
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
                         featuredGroups.map(group => <GroupCard key={group._id} group={group} />)
@@ -42,6 +43,9 @@ const Home = () => {
             </div>
             <div className="px-24 pb-12">
                 <GroupMembers/>
+            </div>
+            <div className="px-24 pb-12">
+                <Services/>
             </div>
         </div>
     );
