@@ -33,9 +33,9 @@ const Home = () => {
             <div className="carousel mb-0">
                 <Carousel/>
             </div>
-            <div className="min-h-screen p-6 md:p-24 mt-[-6px] r">
+            <div className="min-h-screen p-6 md:p-24 mt-[-6px]">
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-green-500">Featured Groups</h2>
-                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {
                         featuredGroups.map(group => <GroupCard key={group._id} group={group} />)
                     }
