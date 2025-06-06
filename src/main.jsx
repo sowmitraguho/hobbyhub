@@ -18,6 +18,7 @@ import MyGroups from './Components/MyGroups.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import ThemeProvider from './Components/Contexts/ThemeProvider.jsx';
 
 // server site from vercel: https://hobby-hub-server-self.vercel.app/groups
 
@@ -75,7 +76,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-       <RouterProvider router={router} />
+       <ThemeProvider>
+        <RouterProvider router={router} />
+       </ThemeProvider>
     </AuthProvider>
   </StrictMode>,
 )
