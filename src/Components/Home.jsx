@@ -14,7 +14,7 @@ const Home = () => {
     const featuredGroups = allGroups?.slice(0, 6) || [];
     return (
         <div className="text-black">
-            <h1 className='text-3xl text-center py-4 text-gray-600 font-semibold dark:text-green-500'>
+            <h1 className='text-xl md:text-3xl text-center py-4 text-gray-600 font-semibold dark:text-green-500'>
                 Life is simple{' '}
                 <span style={{ color: 'red', fontWeight: 'bold' }}>
                     {/* Style will be inherited from the parent element */}
@@ -33,7 +33,7 @@ const Home = () => {
             <div className="carousel mb-0">
                 <Carousel/>
             </div>
-            <div className="min-h-screen p-24 mt-[-6px] r">
+            <div className="min-h-screen p-6 md:p-24 mt-[-6px] r">
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-green-500">Featured Groups</h2>
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
@@ -41,10 +41,10 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <div className="px-24 pb-12">
+            <div className="px-6 md:px-24 pb-12">
                 <GroupMembers/>
             </div>
-            <div className="px-24 pb-12">
+            <div className="px-6 md:px-24 pb-12">
                 <Services/>
             </div>
         </div>

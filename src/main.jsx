@@ -53,8 +53,8 @@ const router = createBrowserRouter([
         element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
       },
       {
-        path: 'mygroup/:name',
-        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.name}`),
+        path: 'mygroup/:email',
+        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/mygroups/${params.email}`),
         element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
       },
       {

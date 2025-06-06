@@ -7,9 +7,9 @@ import GroupCard from './GroupCard';
 const AllGroups = () => {
     const allGroups = useLoaderData();
     return (
-        <div className="p-12 text-center min-h-screen ">
-            <h2 className="text-3xl font-semibold dark:text-white">All Hobby Groups</h2>
-            <div className="p-12">
+        <div className="p-6 lg:p-12 text-center min-h-screen ">
+            <h2 className="text-3xl font-semibold dark:text-white mb-6">All Hobby Groups</h2>
+            <div className="md:p-4 lg:p-12">
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
                     allGroups.map(group=><GroupCard key={group._id} group={group} />)

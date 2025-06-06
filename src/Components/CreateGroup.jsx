@@ -38,7 +38,7 @@ const CreateGroup = () => {
 
 
     return (
-        <div className='p-24 text-center space-y-4'>
+        <div className='p-12 lg:p-24 text-center space-y-4'>
             <h2 className="text-3xl font-semibold">Create A New Hobby Group</h2>
             <p>
                 Start something exciting! Use the form below to create your own hobby group. Whether it's hiking, painting, coding, or anything else you're passionate about, this is the place to bring like-minded people together.
@@ -46,7 +46,7 @@ const CreateGroup = () => {
                 Please fill in the required details to set up your group and let others know what it's all about.
             </p>
             <form onSubmit={handleCreateGroup}>
-                <div className='p-12'>
+                <div className='p-6 lg:p-12'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Group Name</label>

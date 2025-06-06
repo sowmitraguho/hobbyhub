@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Firebase/AuthContext';
 import { Navigate, useLocation } from 'react-router';
+import { ClipLoader } from 'react-spinners';
 
 
 const PrivateRoutes = ({ children }) => {

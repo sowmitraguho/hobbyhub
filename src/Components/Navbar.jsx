@@ -52,7 +52,7 @@ const Navbar = () => {
             <NavLink to='/allgroup'>All Group</NavLink>
         </li>
         <li>
-            <NavLink to={`/mygroup/${loggedInUser?.displayName}`}>My Group</NavLink>
+            <NavLink to={`/mygroup/${loggedInUser?.email}`}>My Group</NavLink>
         </li>
         <li>
             <NavLink to='/creategroup'>Create Group</NavLink>
