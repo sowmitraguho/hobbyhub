@@ -87,7 +87,7 @@ const Navbar = () => {
                     {
                         (loggedInUser?.uid) ? <button onClick={handleLogOut} className="btn">LogOut</button> : <button onClick={() => navigate('/login')} className="btn">Login</button>
                     }
-                    <div className="toggle-button mx-4">
+                    <div className="toggle-button mx-1 md:mx-4">
                         <label className="swap swap-rotate ">
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox" onChange={handleToggle}/>
