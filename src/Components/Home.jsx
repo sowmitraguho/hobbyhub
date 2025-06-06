@@ -30,7 +30,7 @@ const Home = () => {
             <div className="carousel mb-0">
                 <Carousel/>
             </div>
-            <div className="bg-[url('home-background.jpg')] bg-cover bg-center min-h-screen p-24 mt-[-6px]">
+            <div className="min-h-screen p-24 mt-[-6px]">
                 <h2 className="text-2xl font-semibold mb-6 text-red-950">Featured Groups</h2>
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
@@ -38,7 +38,7 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <div>
+            <div className="min-h-screen px-24">
                 <GroupMembers/>
             </div>
         </div>

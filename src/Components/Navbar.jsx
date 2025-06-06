@@ -10,7 +10,7 @@ import { ThemeContext } from './Contexts/ThemeContext';
 const Navbar = () => {
 
     const { loggedInUser, setLoggedInUser, logOut } = use(AuthContext);
-    const {theme, setTheme} = useContext(ThemeContext);
+    const { setTheme} = useContext(ThemeContext);
     //const {displayName, email} = loggedInUser;
     const handleLogOut = () => {
         logOut()
@@ -47,12 +47,6 @@ const Navbar = () => {
         </li>
     </>
 
-    //toggle button
-    const themes = {
-        light: { name: 'Light', icon: <MdSunny /> },
-        dark: { name: 'Dark', icon: <FaMoon /> },
-        system: { name: 'System', icon: <GrSystem /> }
-    }
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">

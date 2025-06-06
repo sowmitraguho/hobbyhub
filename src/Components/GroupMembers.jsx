@@ -16,8 +16,8 @@ const GroupMembers = () => {
     const membersToShow = members.slice(2, 6)
 
     return (
-        <div className="p-24 bg-gray-400 bg-[url('https://png.pngtree.com/thumb_back/fh260/background/20230626/pngtree-template-for-3d-review-designs-image_3683798.jpg')]">
-            <h2 className="text-5xl text-black text-center font-bold py-2 my-6 bg-white rounded-2xl">Users Review</h2>
+        <div>
+            <h2 className="text-5xl text-gray-950 text-center font-bold py-2 mb-20 rounded-2xl dark:text-white">Users Review</h2>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-2 '>
                 {membersToShow.map(member => <MemberProfile key={member._id} member={member}></MemberProfile>)}
             </div>
