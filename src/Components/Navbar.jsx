@@ -1,4 +1,4 @@
-import React, { use, useContext } from 'react';
+import React, { use, useContext, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from './Firebase/AuthContext';
 import { Tooltip } from 'react-tooltip';
@@ -10,7 +10,7 @@ import { ThemeContext } from './Contexts/ThemeContext';
 const Navbar = () => {
 
     const { loggedInUser, setLoggedInUser, logOut } = use(AuthContext);
-    const { setTheme} = useContext(ThemeContext);
+    const { theme, setTheme} = useContext(ThemeContext);
     //const {displayName, email} = loggedInUser;
     const handleLogOut = () => {
         logOut()
@@ -31,6 +31,18 @@ const Navbar = () => {
             setTheme('light')
         }
     }
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+        const localTheme = localStorage.getItem('theme');
+        document.querySelector('html').setAttribute("data-theme", localTheme);
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        document.querySelector('html').classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+        document.querySelector('html').classList.remove('dark');
+    }
+    }, [theme])
 
     const navItems = <>
         <li>

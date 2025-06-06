@@ -12,19 +12,19 @@ const GroupCard = ({ group }) => {
     }
     return (
         <div >
-            <div className="card bg-base-100 w-96 h-96 shadow-sm">
+            <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                 <figure>
-                    <img className='w-96'
+                    <img className='w-full h-65'
                         src={photoURL}
                         alt="Shoes" />
                 </figure>
                 <div className="card-body text-left">
-                    <h2 className="card-title">{name}
-                        <div className="badge badge-secondary">{hobbyCategory}</div>
+                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}
+                        <div className="badge badge-primary tracking-wide ml-4">{hobbyCategory}</div>
                     </h2>
-                    <p>{description}</p>
-                    <p>Last Date to Join: {date}</p>
-                    <div className="card-actions justify-end">
+                    <p className='font-normal text-gray-700 dark:text-gray-400'>{description}</p>
+                    <p className='font-normal text-gray-700 dark:text-gray-400'>Last Date to Join: {date}</p>
+                    <div className="card-actions justify-start">
                         <button onClick={()=> handleViewDetails(_id)} className="btn btn-primary">View Details</button>
                     </div>
                 </div>

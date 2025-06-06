@@ -5,13 +5,15 @@ import { Typewriter } from 'react-simple-typewriter';
 import Carousel from './Carousel';
 import GroupMembers from './GroupMembers';
 
+//bg-[url('https://i.ibb.co/jvKSBjDf/mjy15.jpg')] bg-no-repeat bg-cove
+
 const Home = () => {
     const allGroups = useLoaderData();
     //console.log(allGroups);
     const featuredGroups = allGroups?.slice(0, 6) || [];
     return (
-        <div className="">
-            <h1 className='text-3xl text-center py-4'>
+        <div className="text-black">
+            <h1 className='text-3xl text-center py-4 text-gray-600 font-semibold dark:text-green-500'>
                 Life is simple{' '}
                 <span style={{ color: 'red', fontWeight: 'bold' }}>
                     {/* Style will be inherited from the parent element */}
@@ -30,15 +32,15 @@ const Home = () => {
             <div className="carousel mb-0">
                 <Carousel/>
             </div>
-            <div className="min-h-screen p-24 mt-[-6px]">
-                <h2 className="text-2xl font-semibold mb-6 text-red-950">Featured Groups</h2>
+            <div className="min-h-screen p-24 mt-[-6px] r">
+                <h2 className="text-2xl font-semibold mb-6 text-green-500">Featured Groups</h2>
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {
                         featuredGroups.map(group => <GroupCard key={group._id} group={group} />)
                     }
                 </div>
             </div>
-            <div className="min-h-screen px-24">
+            <div className="px-24 pb-12">
                 <GroupMembers/>
             </div>
         </div>
