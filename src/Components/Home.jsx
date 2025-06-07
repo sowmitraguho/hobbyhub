@@ -44,6 +44,7 @@ const Home = () => {
             <div className="px-6 md:px-24 pb-12">
                 <GroupMembers/>
             </div>
+             <div className="divider divider-success mx-20 dark:text-white text-2xl my-16">About Us</div>
             <div className="px-6 md:px-24 pb-12">
                 <Services/>
             </div>
