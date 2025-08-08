@@ -42,7 +42,7 @@ React, Vite, Tailwind CSS, DaisyUI, React Router DOM, Firebase Authentication, M
 ---
 
 ## 📁 Project Structure
-
+```
 hobbyhub/
 └── src/
 ├── components/
@@ -53,7 +53,7 @@ hobbyhub/
 ├── layouts/
 └── README.md
 
-
+```
 ---
 
 ## 🚀 Getting Started
