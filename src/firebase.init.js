@@ -6,13 +6,14 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCIxkxTwXSy3rQ2J_AqHMPRiUzkEO2clfw",
-  authDomain: "hobbyhub-eaa68.firebaseapp.com",
-  projectId: "hobbyhub-eaa68",
-  storageBucket: "hobbyhub-eaa68.firebasestorage.app",
-  messagingSenderId: "895415252945",
-  appId: "1:895415252945:web:e9b1b8853cb66ceced52f0"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
