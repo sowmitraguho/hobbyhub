@@ -20,7 +20,6 @@ import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import ThemeProvider from './Components/Contexts/ThemeProvider.jsx';
 
-// server site from vercel: https://hobby-hub-server-self.vercel.app/groups
 
 // router setup
 const router = createBrowserRouter([
@@ -30,13 +29,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://hobby-hub-server.onrender.com/groups'),
+        loader: () => fetch('https://hobby-hub-server.onrender.com/api/groups'),
         Component: Home
       },
       {
         path: 'allgroup',
-        loader: () => fetch('https://hobby-hub-server.onrender.com/groups'),
-        Component: AllGroups 
+        loader: () => fetch('https://hobby-hub-server.onrender.com/api/groups'),
+        Component: AllGroups
       },
       {
         path: 'creategroup',
@@ -44,30 +43,30 @@ const router = createBrowserRouter([
       },
       {
         path: 'updategroup/:id',
-        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.id}`), 
-        Component: UpdateGroup 
+        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/groups/${params.id}`),
+        Component: UpdateGroup
       },
       {
         path: 'group/:id',
-        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/groups/${params.id}`),
+        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/apigroups/${params.id}`),
         element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
       },
       {
         path: 'mygroup/:email',
-        loader: ({params}) => fetch(`https://hobby-hub-server.onrender.com/mygroups/${params.email}`),
+        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/mygroups/${params.email}`),
         element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
       },
       {
         path: 'login',
-        Component: Login, 
+        Component: Login,
       },
       {
         path: 'signup',
-        Component: SignUp, 
+        Component: SignUp,
       },
       {
         path: '*',
-        element: <ErrorPage/>
+        element: <ErrorPage />
       }
     ]
   },
@@ -76,9 +75,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-       <ThemeProvider>
+      <ThemeProvider>
         <RouterProvider router={router} />
-       </ThemeProvider>
+      </ThemeProvider>
     </AuthProvider>
   </StrictMode>,
 )
