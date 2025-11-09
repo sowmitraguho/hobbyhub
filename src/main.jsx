@@ -18,6 +18,8 @@ import AuthProvider from './Firebase/AuthProvider.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import ThemeProvider from './Contexts/ThemeProvider.jsx';
+import AboutUsPage from './pages/AboutUs.jsx';
+import ContactUsPage from './Components/ContactUs.jsx';
 
 
 // router setup
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch('https://hobby-hub-server.onrender.com/api/groups'),
         Component: Home
+      },
+      {
+        path: 'aboutus',
+        Component: AboutUsPage
+      },
+      {
+        path: 'contactus',
+        Component: ContactUsPage
       },
       {
         path: 'allgroup',

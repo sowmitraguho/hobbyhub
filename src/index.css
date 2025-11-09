@@ -1,7 +1,25 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 @plugin "daisyui" {
   themes: light, dark;
 }
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+.navlink {
+  @apply relative text-gray-600 dark:text-gray-100 hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold;
+}
+
+.navlink::after {
+  content: '';
+  @apply absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-pink-400 to-purple-400 transition-all duration-300;
+}
+
+.navlink:hover::after,
+.navlink.active::after {
+  @apply w-full;
+}
+
+.dropdown-item {
+  @apply block px-4 py-2 text-sm text-gray-200 hover:bg-white/20 transition;
+}
