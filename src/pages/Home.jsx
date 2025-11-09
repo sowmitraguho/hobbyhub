@@ -6,6 +6,7 @@ import GroupMembers from './GroupMembers';
 import Services from './Services';
 import LoaderSkeleton from '../Components/LoaderSkeleton/LoaderSkeleton';
 import HeroSection from '../Components/HeroSection';
+import FeaturedGroupsSection from '../Components/FeaturedGroup';
 
 //bg-[url('https://i.ibb.co/jvKSBjDf/mjy15.jpg')] bg-no-repeat bg-cove
 
@@ -33,14 +34,7 @@ const Home = () => {
                 </span>
             </h1>
             <HeroSection />
-            <div className="min-h-screen p-6 md:p-24 mt-[-6px]">
-                <h2 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-green-500">Featured Groups</h2>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {
-                        featuredGroups.map(group => <GroupCard key={group._id} group={group} />)
-                    }
-                </div>
-            </div>
+            <FeaturedGroupsSection featuredGroups={featuredGroups} />
             <div className="px-6 md:px-24 pb-12">
                 <GroupMembers />
             </div>
