@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MemberProfile from './MemberProfile';
+import MemberProfile from '../Components/MemberProfile';
 
 
 const GroupMembers = () => {
@@ -7,7 +7,7 @@ const GroupMembers = () => {
     const [members, setMembers] = useState([]);
 
     useEffect(() => {
-        fetch('https://hobby-hub-server.onrender.com/users').then(res => res.json()).then(data => {
+        fetch('https://hobby-hub-server.onrender.com/api/users').then(res => res.json()).then(data => {
             console.log('from members', data);
             setMembers(data);
         });
@@ -21,7 +21,7 @@ const GroupMembers = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
                 {membersToShow.map(member => <MemberProfile key={member._id} member={member}></MemberProfile>)}
             </div>
-            
+
         </div>
     );
 };

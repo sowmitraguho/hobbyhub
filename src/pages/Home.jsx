@@ -1,15 +1,17 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import GroupCard from './GroupCard';
+import GroupCard from '../Components/GroupCard';
 import { Typewriter } from 'react-simple-typewriter';
-import Carousel from './Carousel';
 import GroupMembers from './GroupMembers';
 import Services from './Services';
+import LoaderSkeleton from '../Components/LoaderSkeleton/LoaderSkeleton';
+import HeroSection from '../Components/HeroSection';
 
 //bg-[url('https://i.ibb.co/jvKSBjDf/mjy15.jpg')] bg-no-repeat bg-cove
 
 const Home = () => {
     const allGroups = useLoaderData();
+    if (!allGroups) return <LoaderSkeleton />;
     //console.log(allGroups);
     const featuredGroups = allGroups?.slice(0, 6) || [];
     return (
@@ -26,13 +28,11 @@ const Home = () => {
                         typeSpeed={70}
                         deleteSpeed={50}
                         delaySpeed={1000}
-                        
+
                     />
                 </span>
             </h1>
-            <div className="carousel mb-0">
-                <Carousel/>
-            </div>
+            <HeroSection />
             <div className="min-h-screen p-6 md:p-24 mt-[-6px]">
                 <h2 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-green-500">Featured Groups</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
@@ -42,11 +42,11 @@ const Home = () => {
                 </div>
             </div>
             <div className="px-6 md:px-24 pb-12">
-                <GroupMembers/>
+                <GroupMembers />
             </div>
-             <div className="divider divider-success mx-20 dark:text-white text-2xl my-16">About Us</div>
+            <div className="divider divider-success mx-20 dark:text-white text-2xl my-16">About Us</div>
             <div className="px-6 md:px-24 pb-12">
-                <Services/>
+                <Services />
             </div>
         </div>
     );

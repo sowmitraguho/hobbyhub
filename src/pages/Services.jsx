@@ -5,7 +5,7 @@ import { FaGlassCheers } from "react-icons/fa";
 import { MdPartyMode } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { HiLightBulb } from "react-icons/hi";
-import ServiceCard from './ServiceCard';
+import ServiceCard from '../Components/ServiceCard';
 
 const Services = () => {
     const allServices = [
@@ -54,7 +54,7 @@ const Services = () => {
                 </div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12'>
-                {allServices.map((item, index)=><ServiceCard key={index} item={item}></ServiceCard>)}
+                {allServices.map((item, index) => <ServiceCard key={index} item={item}></ServiceCard>)}
             </div>
         </div>
     );

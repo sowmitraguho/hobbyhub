@@ -1,41 +1,41 @@
 import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
-import { AuthContext } from './Firebase/AuthContext';
+import { AuthContext } from '../Firebase/AuthContext';
 
 const UpdateGroup = () => {
 
-    const {loggedInUser} = use(AuthContext);
+    const { loggedInUser } = use(AuthContext);
 
     const currentGroupData = useLoaderData();
 
     const handleUpdateGroup = (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const newGroupInfo = Object.fromEntries(formData.entries());
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const newGroupInfo = Object.fromEntries(formData.entries());
 
-            // data send to mongodb
-            fetch(`https://hobby-hub-server.onrender.com/groups/${currentGroupData._id}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newGroupInfo)
+        // data send to mongodb
+        fetch(`https://hobby-hub-server.onrender.com/groups/${currentGroupData._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newGroupInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: "Group has been created SuccessFully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2000
+                    });
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount) {
-                        Swal.fire({
-                            title: "Group has been created SuccessFully!",
-                            icon: "success",
-                            draggable: true,
-                            timer: 2000
-                        });
-                    }
-                })
-    
-        }
+
+    }
 
 
 

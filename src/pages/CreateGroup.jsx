@@ -1,11 +1,11 @@
 import React, { use } from 'react';
 import Swal from 'sweetalert2';
-import { AuthContext } from './Firebase/AuthContext';
+import { AuthContext } from '../Firebase/AuthContext';
 
 const CreateGroup = () => {
 
-    const {loggedInUser} = use(AuthContext);
-    const {displayName, email} = loggedInUser;
+    const { loggedInUser } = use(AuthContext);
+    const { displayName, email } = loggedInUser;
 
     const handleCreateGroup = (e) => {
         e.preventDefault();

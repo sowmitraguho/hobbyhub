@@ -1,24 +1,23 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
 import MainLayouts from './Layouts/MainLayouts.jsx';
-import Home from './Components/Home.jsx';
-import CreateGroup from './Components/CreateGroup.jsx';
+import Home from './pages/Home.jsx';
+import CreateGroup from './pages/CreateGroup.jsx';
 import UpdateGroup from './Components/UpdateGroup.jsx';
-import GroupDetails from './Components/GroupDetails.jsx';
-import AllGroups from './Components/AllGroups.jsx';
-import SignUp from './Components/SignUp.jsx';
-import Login from './Components/Login.jsx';
-import MyGroups from './Components/MyGroups.jsx';
-import AuthProvider from './Components/Firebase/AuthProvider.jsx';
-import PrivateRoutes from './Components/Routes/PrivateRoutes.jsx';
-import ErrorPage from './Components/ErrorPage.jsx';
-import ThemeProvider from './Components/Contexts/ThemeProvider.jsx';
+import GroupDetails from './pages/GroupDetails.jsx';
+import AllGroups from './pages/AllGroups.jsx';
+import SignUp from './auth/SignUp.jsx';
+import Login from './auth/Login.jsx';
+import MyGroups from './pages/MyGroups.jsx';
+import AuthProvider from './Firebase/AuthProvider.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
+import ErrorPage from './pages/ErrorPage.jsx';
+import ThemeProvider from './Contexts/ThemeProvider.jsx';
 
 
 // router setup

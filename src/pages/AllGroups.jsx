@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import GroupCard from './GroupCard';
+import GroupCard from '../Components/GroupCard';
 
 //bg-[url('home-background.jpg')] bg-cover bg-center 
 

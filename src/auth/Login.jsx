@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { AuthContext } from './Firebase/AuthContext';
+import { AuthContext } from '../Firebase/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -42,10 +42,10 @@ const Login = () => {
             .catch((error) => {
                 console.log(error.message);
                 Swal.fire({
-                        title: "Wrong Email or Password!",
-                        icon: "warning",
-                        draggable: true
-                    });
+                    title: "Wrong Email or Password!",
+                    icon: "warning",
+                    draggable: true
+                });
             });
     }
     return (

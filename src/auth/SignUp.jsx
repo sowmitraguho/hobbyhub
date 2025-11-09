@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from './Firebase/AuthContext';
+import { AuthContext } from '../Firebase/AuthContext';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 

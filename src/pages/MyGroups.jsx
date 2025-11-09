@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router';
-import GroupCard from './GroupCard';
+import GroupCard from '../Components/GroupCard';
 import Swal from 'sweetalert2';
 
 const MyGroups = () => {
