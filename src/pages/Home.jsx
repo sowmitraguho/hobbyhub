@@ -7,6 +7,11 @@ import Services from './Services';
 import LoaderSkeleton from '../Components/LoaderSkeleton/LoaderSkeleton';
 import HeroSection from '../Components/HeroSection';
 import FeaturedGroupsSection from '../Components/FeaturedGroup';
+import HowItWorksSection from '../Components/HowItWorksSection';
+import EventCategoriesSection from '../Components/EventCategoriesSection';
+import StatisticsSocialProofSection from '../Components/StatisticsSocialProofSection';
+import TestimonialsSuccessStoriesSection from '../Components/TestimonialsSuccessStoriesSection';
+import CallToActionSection from '../Components/CallToActionSection';
 
 //bg-[url('https://i.ibb.co/jvKSBjDf/mjy15.jpg')] bg-no-repeat bg-cove
 
@@ -35,13 +40,11 @@ const Home = () => {
             </h1>
             <HeroSection />
             <FeaturedGroupsSection featuredGroups={featuredGroups} />
-            <div className="px-6 md:px-24 pb-12">
-                <GroupMembers />
-            </div>
-            <div className="divider divider-success mx-20 dark:text-white text-2xl my-16">About Us</div>
-            <div className="px-6 md:px-24 pb-12">
-                <Services />
-            </div>
+            <HowItWorksSection />
+            <EventCategoriesSection />
+            <StatisticsSocialProofSection />
+            <TestimonialsSuccessStoriesSection />
+            <CallToActionSection />
         </div>
     );
 };
