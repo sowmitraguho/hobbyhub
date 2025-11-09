@@ -325,6 +325,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
+  const [openProfileMenu, setOpenProfileMenu] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -418,9 +419,12 @@ export default function Navbar() {
                 }
                 alt="User"
                 className="w-10 h-10 rounded-full border-2 border-white/30 cursor-pointer"
+                onClick={()=> setOpenProfileMenu(!openProfileMenu)}
               />
 
-              <div className="absolute right-0 mt-3 hidden group-hover:block bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl py-3 w-48">
+              <div className={`absolute right-0 mt-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl py-3 w-48 transition-all ${
+          openProfileMenu ? "block" : "hidden"
+        }`}>
                 <p className="text-sm px-4 text-gray-200 mb-1 font-medium">
                   {loggedInUser.displayName}
                 </p>
@@ -437,7 +441,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  to={`/mygroup/${loggedInUser.email}`}
+                  to={`/my-group/${loggedInUser.email}`}
                   className="dropdown-item"
                 >
                   My Groups
@@ -461,7 +465,7 @@ export default function Navbar() {
           ) : (
             <button
               onClick={() => navigate("/login")}
-              className="px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold hover:scale-105 transition shadow-lg"
+              className="px-6 py-2 rounded-full bg-linear-to-r from-pink-500 to-purple-600 text-white font-semibold hover:scale-105 transition shadow-lg"
             >
               Login
             </button>

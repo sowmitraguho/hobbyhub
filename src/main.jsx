@@ -8,7 +8,7 @@ import {
 import MainLayouts from './Layouts/MainLayouts.jsx';
 import Home from './pages/Home.jsx';
 import CreateGroup from './pages/CreateGroup.jsx';
-import UpdateGroup from './Components/UpdateGroup.jsx';
+import UpdateGroup from './pages/UpdateGroup.jsx';
 import GroupDetails from './pages/GroupDetails.jsx';
 import AllGroups from './pages/AllGroups.jsx';
 import SignUp from './auth/SignUp.jsx';
