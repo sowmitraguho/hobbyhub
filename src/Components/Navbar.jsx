@@ -225,7 +225,7 @@
 //                             {loggedInUser?.uid && authNavItems}
 //                         </ul>
 //                     </div>
-//                     <Link to='/' className="btn btn-ghost text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+//                     <Link to='/' className="btn btn-ghost text-xl font-bold bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
 //                         HobbyHub
 //                     </Link>
 //                 </div>
@@ -356,8 +356,6 @@ export default function Navbar() {
       {loggedInUser?.uid && (
         <>
           <NavLink to="/dashboard" className="navlink">Dashboard</NavLink>
-          <NavLink to={`/mygroup/${loggedInUser?.email}`} className="navlink">My Groups</NavLink>
-          <NavLink to="/creategroup" className="navlink">Create Group</NavLink>
         </>
       )}
     </>
@@ -365,14 +363,14 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 backdrop-blur-xl bg-white/10 border-b border-white/20 shadow-lg">
-      
+
       {/* Outer container */}
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent tracking-wider"
+          className="text-2xl font-extrabold bg-linear-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent tracking-wider"
         >
           HobbyHub
         </Link>
@@ -397,9 +395,8 @@ export default function Navbar() {
             />
             <div className="w-12 h-6 bg-white/20 rounded-full relative transition">
               <div
-                className={`${
-                  theme === "dark" ? "translate-x-6" : "translate-x-1"
-                } absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full transition`}
+                className={`${theme === "dark" ? "translate-x-6" : "translate-x-1"
+                  } absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-linear-to-br from-purple-500 to-pink-500 rounded-full transition`}
               />
             </div>
             {theme === "dark" ? (
@@ -419,12 +416,11 @@ export default function Navbar() {
                 }
                 alt="User"
                 className="w-10 h-10 rounded-full border-2 border-white/30 cursor-pointer"
-                onClick={()=> setOpenProfileMenu(!openProfileMenu)}
+                onClick={() => setOpenProfileMenu(!openProfileMenu)}
               />
 
-              <div className={`absolute right-0 mt-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl py-3 w-48 transition-all ${
-          openProfileMenu ? "block" : "hidden"
-        }`}>
+              <div className={`absolute right-0 mt-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl py-3 w-48 transition-all ${openProfileMenu ? "block" : "hidden"
+                }`}>
                 <p className="text-sm px-4 text-gray-200 mb-1 font-medium">
                   {loggedInUser.displayName}
                 </p>
@@ -499,7 +495,7 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="px-6 py-2 mt-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold shadow-lg"
+                className="px-6 py-2 mt-2 rounded-full bg-linear-to-r from-pink-500 to-purple-600 text-white font-semibold shadow-lg"
               >
                 Login
               </button>

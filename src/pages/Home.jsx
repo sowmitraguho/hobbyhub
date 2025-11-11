@@ -4,7 +4,7 @@ import GroupCard from '../Components/GroupCard';
 import { Typewriter } from 'react-simple-typewriter';
 import GroupMembers from './GroupMembers';
 import Services from './Services';
-import LoaderSkeleton from '../Components/LoaderSkeleton/LoaderSkeleton';
+import LoaderSkeleton from '../Components/LoaderSkeleton/LoadingPage';
 import HeroSection from '../Components/HeroSection';
 import FeaturedGroupsSection from '../Components/FeaturedGroup';
 import HowItWorksSection from '../Components/HowItWorksSection';

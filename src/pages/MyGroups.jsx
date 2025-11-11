@@ -161,7 +161,7 @@ useEffect(() => {
 
                   <td className="flex flex-col gap-2 mt-3">
                     <button
-                      onClick={() => navigate(`/updategroup/${group._id}`)}
+                      onClick={() => navigate(`/dashboard/updategroup/${group._id}`)}
                       className="px-4 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
                     >
                       <Pencil className="w-4 h-4" /> Update

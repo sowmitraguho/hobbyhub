@@ -20,6 +20,8 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import ThemeProvider from './Contexts/ThemeProvider.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
 import ContactUsPage from './Components/ContactUs.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import DashboardLayout from './Layouts/DashboardLayouts.jsx';
 
 
 // router setup
@@ -46,25 +48,13 @@ const router = createBrowserRouter([
         loader: () => fetch('https://hobby-hub-server.onrender.com/api/groups'),
         Component: AllGroups
       },
-      {
-        path: 'creategroup',
-        element: <PrivateRoutes> <CreateGroup></CreateGroup> </PrivateRoutes>
-      },
-      {
-        path: 'updategroup/:id',
-        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/groups/${params.id}`),
-        Component: UpdateGroup
-      },
+
       {
         path: 'group/:id',
         loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/groups/${params.id}`),
         element: <PrivateRoutes> <GroupDetails></GroupDetails> </PrivateRoutes>
       },
-      {
-        path: 'mygroup/:email',
-        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/mygroups/${params.email}`),
-        element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
-      },
+
       {
         path: 'login',
         Component: Login,
@@ -79,6 +69,27 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/dashboard',
+    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+    children: [
+      { index: true, element: <Dashboard></Dashboard> },
+      {
+        path: 'mygroup/:email',
+        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/mygroups/${params.email}`),
+        element: <PrivateRoutes> <MyGroups></MyGroups> </PrivateRoutes>
+      },
+      {
+        path: 'creategroup',
+        element: <PrivateRoutes> <CreateGroup></CreateGroup> </PrivateRoutes>
+      },
+      {
+        path: 'updategroup/:id',
+        loader: ({ params }) => fetch(`https://hobby-hub-server.onrender.com/api/groups/${params.id}`),
+        Component: UpdateGroup
+      },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
